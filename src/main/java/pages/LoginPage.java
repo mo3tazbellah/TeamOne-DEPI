@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class LoginPage {
 
@@ -23,4 +24,10 @@ public class LoginPage {
         return new InventoryPage(driver);
     }
 
+    public WebElement getMessage(){
+        By messageLocator = By.tagName("h3");
+        WebElement message = browser.findElement(messageLocator);
+
+        return message;
+    }
 }
