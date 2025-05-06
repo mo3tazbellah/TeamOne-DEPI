@@ -11,29 +11,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartPage {
-
-    WebDriver driver;
+    // driver
+    WebDriver browser;
+    // locators
+    private By cartItemWebElementsLocator = By.className("cart_item");
+    private By nameElementLocator = By.tagName("a");
+    private By quantityLocator = By.className("cart_quantity");
+    private By priceLocator = By.className("inventory_item_price");
+    private By removeBtnLocator = By.tagName("button");
+    private By checkoutBtnLocator = By.className("checkout_button");
+    private By conShoppingBtnLocator = By.cssSelector(".cart_footer .btn_secondary");
 
     // constructor
     public CartPage(WebDriver driver)
     {
-        this.driver = driver;
+        this.browser = driver;
     }
-
+    // methods
     // returns a list of CartItem objects
     public List<CartItem> getCartItems(){
         // creates a new List
         List<CartItem> cartItemsList = new ArrayList<>();
         // gets all swagLabs cart_items elements
-        List<WebElement> cartItemWebElements = driver.findElements(By.className("cart_item"));
+        List<WebElement> cartItemWebElements = browser.findElements(cartItemWebElementsLocator);
 
         // gets each element's data and create a new cartItem object with it
         for (WebElement cartItemElement : cartItemWebElements)
         {
-            WebElement nameElement = cartItemElement.findElement(By.tagName("a"));
-            int quantity = Integer.parseInt(cartItemElement.findElement(By.className("cart_quantity")).getText());
-            double price = Double.parseDouble(cartItemElement.findElement(By.className("inventory_item_price")).getText());
-            WebElement removeBtn = cartItemElement.findElement(By.tagName("button"));
+            WebElement nameElement = cartItemElement.findElement(nameElementLocator);
+            int quantity = Integer.parseInt(cartItemElement.findElement(quantityLocator).getText());
+            double price = Double.parseDouble(cartItemElement.findElement(priceLocator).getText());
+            WebElement removeBtn = cartItemElement.findElement(removeBtnLocator);
             // adds new CartItem object in the list
             cartItemsList.add(new CartItem(nameElement, quantity, null, price, removeBtn));
         }
@@ -41,15 +49,15 @@ public class CartPage {
         return cartItemsList;
     }
 
-    public void clickCheckout(){
-        By checkoutBtnLocator = By.className("checkout_button");
-        WebElement checkoutBtn = driver.findElement(checkoutBtnLocator);
+    public CheckoutStepOnePage clickCheckout(WebDriver driver){
+        WebElement checkoutBtn = browser.findElement(checkoutBtnLocator);
         checkoutBtn.click();
+        return new CheckoutStepOnePage(driver);
     }
     
-    public void clickContinueShopping(){
-        By conShoppingBtnLocator = By.cssSelector(".cart_footer .btn_secondary");
-        WebElement conShoppingBtn = driver.findElement(conShoppingBtnLocator);
+    public InventoryPage clickContinueShopping(WebDriver driver){
+        WebElement conShoppingBtn = browser.findElement(conShoppingBtnLocator);
         conShoppingBtn.click();
+        return new InventoryPage(driver);
     }
 }
