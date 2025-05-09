@@ -14,13 +14,13 @@ public class CartPage {
     // driver
     WebDriver browser;
     // locators
-    private By cartItemWebElementsLocator = By.className("cart_item");
-    private By nameElementLocator = By.tagName("a");
-    private By quantityLocator = By.className("cart_quantity");
-    private By priceLocator = By.className("inventory_item_price");
-    private By removeBtnLocator = By.tagName("button");
-    private By checkoutBtnLocator = By.className("checkout_button");
-    private By conShoppingBtnLocator = By.cssSelector(".cart_footer .btn_secondary");
+    private final By cartItemWebElementsLocator = By.className("cart_item");
+    private final By nameElementLocator = By.tagName("a");
+    private final By quantityLocator = By.className("cart_quantity");
+    private final By priceLocator = By.className("inventory_item_price");
+    private final By removeBtnLocator = By.tagName("button");
+    private final By checkoutBtnLocator = By.className("checkout_button");
+    private final By conShoppingBtnLocator = By.cssSelector(".cart_footer .btn_secondary");
 
     // constructor
     public CartPage(WebDriver driver)

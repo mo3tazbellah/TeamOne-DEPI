@@ -14,13 +14,13 @@ public class InventoryPage {
     // driver
     WebDriver browser;
     // locators
-    private By inventoryItemLocator = By.className("inventory_item");
-    private By nameElementLocator = By.cssSelector(".inventory_item_label a");
-    private By imageElementLocator = By.tagName("img");
-    private By descriptionLocator = By.className("inventory_item_desc");
-    private By priceLocator = By.className("inventory_item_price");
-    private By inventoryBtnLocator = By.tagName("button");
-    private By dropdownLocator = By.className("product_sort_container");
+    private final By inventoryItemLocator = By.className("inventory_item");
+    private final By nameElementLocator = By.cssSelector(".inventory_item_label a");
+    private final By imageElementLocator = By.tagName("img");
+    private final By descriptionLocator = By.className("inventory_item_desc");
+    private final By priceLocator = By.className("inventory_item_price");
+    private final By inventoryBtnLocator = By.tagName("button");
+    private final By dropdownLocator = By.className("product_sort_container");
     // constructor
     public InventoryPage(WebDriver driver)
     {
@@ -48,6 +48,7 @@ public class InventoryPage {
         // return the list of CartItem objects
         return inventoryItemsList;
     }
+
 
     public InventoryItemPage clickInventoryItemImg(InventoryItem item, WebDriver driver )
     {
@@ -79,5 +80,8 @@ public class InventoryPage {
 
         }
     }
+
+
+
 
 }

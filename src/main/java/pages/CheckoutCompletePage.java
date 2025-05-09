@@ -10,8 +10,8 @@ public class CheckoutCompletePage extends MethodHandles {
     }
 
 
-    private By assertInFinishPage=By.xpath("//*[text()=\"Finish\"]");
-    private By assertThanksMessage=By.xpath("//*[text()=\"THANK YOU FOR YOUR ORDER\"]");
+    private final By assertInFinishPage=By.xpath("//*[text()=\"Finish\"]");
+    private final By assertThanksMessage=By.xpath("//*[text()=\"THANK YOU FOR YOUR ORDER\"]");
 
     public String getAssertInFinishPage() {
         return getText(assertInFinishPage);

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Tests" parallel="false">
+
+    <!-- Run tests as standard_user -->
+    <test name="Standard User Tests">
+        <parameter name="username" value="standard_user"/>
+        <parameter name="password" value="secret_sauce"/>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.InventoryTest"/>
+            <class name="tests.CartPageTest"/>
+            <class name="tests.CheckoutStepOneTest"/>
+            <class name="tests.CheckoutStepTwoTest"/>
+            <class name="tests.CheckoutCompleteTest"/>
+        </classes>
+    </test>
+
+    <!-- Run tests as problem_user -->
+    <test name="Problem User Tests">
+        <parameter name="username" value="problem_user"/>
+        <parameter name="password" value="secret_sauce"/>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.InventoryTest"/>
+            <class name="tests.CartPageTest"/>
+            <class name="tests.CheckoutStepOneTest"/>
+            <class name="tests.CheckoutStepTwoTest"/>
+            <class name="tests.CheckoutCompleteTest"/>
+        </classes>
+    </test>
+
+    <!-- Run tests as locked_out_user -->
+    <test name="Locked Out User Tests">
+        <parameter name="username" value="locked_out_user"/>
+        <parameter name="password" value="secret_sauce"/>
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+
+</suite>

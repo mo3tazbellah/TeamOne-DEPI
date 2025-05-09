@@ -1,5 +1,6 @@
 package handlers;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class CartItem extends BaseItem{
@@ -12,4 +13,6 @@ public class CartItem extends BaseItem{
         this.removeBtn = removeBtn;
         this.quantity = quantity;
     }
+
+
 }

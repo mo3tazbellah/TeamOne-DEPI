@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.MethodHandles;
 
 public class CheckoutStepOnePage extends MethodHandles {
@@ -9,11 +10,11 @@ public class CheckoutStepOnePage extends MethodHandles {
         super(driver);
     }
 
-    private By assertInCheckOutStepOnePage=By.xpath("//*[text()=\"Checkout: Your Information\"]");
-    private By firstName=By.xpath("//input[@id='first-name']");
-    private By lastName=By.xpath("//input[@id='last-name']");
-    private By postalCode=By.xpath("//input[@id='postal-code']");
-    private By continueButton=By.xpath("//input[@value='CONTINUE']");
+    private final By assertInCheckOutStepOnePage=By.xpath("//*[text()=\"Checkout: Your Information\"]");
+    private final By firstName=By.xpath("//input[@id='first-name']");
+    private final By lastName=By.xpath("//input[@id='last-name']");
+    private final By postalCode=By.xpath("//input[@id='postal-code']");
+    private final By continueButton=By.xpath("//input[@value='CONTINUE']");
 
 
     public String getAssertInCheckOutStepOnePage() {
@@ -30,6 +31,14 @@ public class CheckoutStepOnePage extends MethodHandles {
     public CheckoutStepTwoPage clickContinueButton(){
         click(continueButton,5);
         return new CheckoutStepTwoPage(driver);
+    }
+
+    public String getFirstNameValue() {
+        return driver.findElement(firstName).getAttribute("value");
+    }
+
+    public String getLastNameValue() {
+        return driver.findElement(lastName).getAttribute("value");
     }
 
 }
