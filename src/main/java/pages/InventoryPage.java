@@ -50,16 +50,6 @@ public class InventoryPage {
     }
 
 
-    public InventoryItemPage clickInventoryItemImg(InventoryItem item, WebDriver driver )
-    {
-        item.imageElement.click();
-        return new InventoryItemPage(driver);
-    }
-    public InventoryItemPage clickInventoryItemName(InventoryItem item, WebDriver driver )
-    {
-        item.nameElement.click();
-        return new InventoryItemPage(driver);
-    }
 
     public void selectSortingOption(int index){
         WebElement dropdown = browser.findElement(dropdownLocator);
