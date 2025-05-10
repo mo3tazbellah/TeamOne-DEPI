@@ -19,6 +19,19 @@ public class CartPageTest extends  BaseTest{
     @Test
     public void test()
     {
-
+        InventoryPage inventoryPage = new LoginPage(driver).loginAs("standard_user", "secret_sauce",driver);
+        inventoryPage.selectSortingOption(4);
+        List<InventoryItem> inventoryItemList = inventoryPage.getInventoryItems();
+        InventoryItemPage inventoryItemPage;
+        for(int i = 0; i < inventoryItemList.size(); i++) {
+            inventoryItemPage = inventoryPage.clickInventoryItemImg(inventoryItemList.get(i), driver);
+            inventoryItemPage.clickAddToCartBtn();
+            inventoryPage = inventoryItemPage.clickBackBtn(driver);
+        }
+        CartPage cartPage = Navbar.clickShoppingCart(driver);
+        CheckoutStepOnePage checkoutStepOnePage = cartPage.clickCheckout(driver);
+        checkoutStepOnePage.enterDetails("moataz","bellah","12345");
+        CheckoutStepTwoPage checkoutStepTwoPage = checkoutStepOnePage.clickContinueButton();
+        CheckoutCompletePage checkoutCompletePage = checkoutStepTwoPage.clickFinishButton();
     }
 }
