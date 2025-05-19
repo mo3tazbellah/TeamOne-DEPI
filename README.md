@@ -4,13 +4,15 @@ This repository contains a Java-based automated testing framework for the [Swag 
 
 ---
 
+## Drive Link
+[https://drive.google.com/drive/folders/1f01A1LMu8YI5WWFu3Sf1vi29vqiPYgUe?usp=sharing](https://drive.google.com/drive/folders/1f01A1LMu8YI5WWFu3Sf1vi29vqiPYgUe?usp=sharing)
+
+---
+
 ## 📌 Features
 
-- ✅ Cross-browser web UI automation
 - 🔄 Page Object Model (POM) for clean test structure
 - 🔧 Configurable test execution via `testng.xml`
-- 📋 Detailed reports via TestNG and console output
-- 🧪 Covers positive and negative test scenarios
 
 ---
 
